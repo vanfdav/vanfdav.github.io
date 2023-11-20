@@ -14,7 +14,7 @@
 
 <h1>Checkout Searcher</h1>
 <p>Search for checkouts by name</p>
-<input id="personname" type="text"/><button onClick="doSearch()">Search</button>
+<input id="personname" type="text" onkeypress="handleKeyPress(event)"/><button onClick="doSearch()">Search</button>
 
 <br/>
 <br/>
@@ -32,6 +32,12 @@
 </table>
 
 <script>
+  function handleKeyPress(event) {
+    if (event.key == "Enter") {
+      doSearch()
+    }
+  }
+	
   function doSearch() {
     const searchElement = document.getElementById("personname")
     const searchValue = encodeURIComponent(searchElement.value)
